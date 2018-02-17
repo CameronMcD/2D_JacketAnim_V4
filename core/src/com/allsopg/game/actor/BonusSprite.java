@@ -55,7 +55,7 @@ public class BonusSprite extends AnimatedSprite {
         Tween.to(tweenData, TweenDataAccessor.TYPE_POS,0f)
                 .target(110,90).start(tweenManager).to(tweenData, TweenDataAccessor.TYPE_ROTATION,250f)
                 //.target(0f).start().start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_SCALE,150f)
-               // .target(.15f).start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_COLOUR,500f);
+               // .target(.15f).start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_COLOUR,500f)
                 .target(.15f,.15f,.15f,.0f).start(tweenManager);
         }
 
@@ -63,8 +63,10 @@ public class BonusSprite extends AnimatedSprite {
 
         Tween.to(tweenData, TweenDataAccessor.TYPE_POS,0f)
                 .target(300,90).start(tweenManager).to(tweenData, TweenDataAccessor.TYPE_ROTATION,250f)
-                .target(0f).start().start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_SCALE,50f)
+                //.target(0f).start().start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_SCALE,50f)
+                .target(.15f).start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_COLOUR,45f) //used this to make the collision routine dissapear after one playthrough
                 .target(.15f,.15f,.15f,.0f).start(tweenManager);
+
 
     }
 
