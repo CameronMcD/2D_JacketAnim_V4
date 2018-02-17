@@ -1,5 +1,6 @@
 package com.allsopg.game.actor;
 
+import com.allsopg.game.sound.SoundLink;
 import com.allsopg.game.utility.TweenData;
 import com.allsopg.game.utility.TweenDataAccessor;
 import com.allsopg.game.utility.UniversalResource;
@@ -10,8 +11,10 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
+import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenAccessor;
+import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
 /**
@@ -22,11 +25,14 @@ import aurelienribon.tweenengine.TweenManager;
 public class BonusSprite extends AnimatedSprite {
     private TweenData tweenData;
     private TweenManager tweenManager;
+    private SoundLink soundLink;
 
     public BonusSprite(String atlasString, Texture t, Vector2 pos, Animation.PlayMode loopType){
         super(atlasString, t, loopType);
         this.setPosition(pos.x,pos.y);
         initTweenData();
+        soundLink = new SoundLink();
+
     }
 
     private void initTweenData(){
@@ -66,8 +72,7 @@ public class BonusSprite extends AnimatedSprite {
                 //.target(0f).start().start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_SCALE,50f)
                 .target(.15f).start(tweenManager).to(tweenData,TweenDataAccessor.TYPE_COLOUR,45f) //used this to make the collision routine dissapear after one playthrough
                 .target(.15f,.15f,.15f,.0f).start(tweenManager);
-
-
+                soundLink.play(1);
     }
 
 

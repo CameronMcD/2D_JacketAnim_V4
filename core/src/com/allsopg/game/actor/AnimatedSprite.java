@@ -1,5 +1,6 @@
 package com.allsopg.game.actor;
 
+import com.allsopg.game.sound.SoundLink;
 import com.allsopg.game.utility.Constants;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -19,6 +20,7 @@ import java.util.Comparator;
 public class AnimatedSprite extends Sprite {
     private Animation animation;
     private TextureAtlas atlas;
+    //private SoundLink soundLink;
 
 
     public AnimatedSprite(String atlasString, Texture t,Animation.PlayMode loopType){
@@ -28,6 +30,7 @@ public class AnimatedSprite extends Sprite {
                 Array<TextureAtlas.AtlasRegion>(atlas.getRegions());
         regions.sort(new RegionComparator());
         animation = new Animation(Constants.FRAME_DURATION,regions,loopType);
+        //soundLink = new SoundLink();
     }
 
     public void update(float deltaTime){
