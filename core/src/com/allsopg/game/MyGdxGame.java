@@ -26,7 +26,7 @@ public class MyGdxGame extends ApplicationAdapter {
     private Viewport view;
     private SpriteBatch batch;
     private AnimatedSprite jacket_1;
-    private BonusSprite jacket;
+    private BonusSprite jacket, gone;
     private float animationTime;
 
 	@Override
@@ -40,7 +40,12 @@ public class MyGdxGame extends ApplicationAdapter {
 		//Texture small = new Texture(Gdx.files.internal("gfx/smallSize.png"));
 		Texture medium = new Texture(Gdx.files.internal("gfx/jacket/mediumSize.png"));
         jacket = new BonusSprite("gfx/jacket/jacket_assets.atlas",medium,new Vector2(Constants.SCENE_WIDTH/2,Constants.SCENE_HEIGHT/2), Animation.PlayMode.LOOP);
+		gone = new BonusSprite("gfx/collision/collision_assets.atlas",medium,new Vector2(Constants.SCENE_WIDTH/2,Constants.SCENE_HEIGHT/2), Animation.PlayMode.LOOP);
+
+
         jacket.idleRoutine();
+		gone.collisionRoutine();
+
 	}
 	@Override
 	public void render () {
@@ -56,6 +61,10 @@ public class MyGdxGame extends ApplicationAdapter {
 
         jacket.update(animationTime);
         jacket.draw(batch);
+
+		gone.update(animationTime);
+		gone.draw(batch);
+
 		batch.end();
 	}
 	@Override

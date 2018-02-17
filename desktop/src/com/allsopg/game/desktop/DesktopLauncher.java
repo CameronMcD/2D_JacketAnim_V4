@@ -10,9 +10,9 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
-		config.height = 320;
-		config.width = 240;
-		TexturePacker.process("../assets/gfx/collision", "../assets/gfx/collision", "collision_assets");
+		//config.height = 320;
+		//config.width = 240;
+		//TexturePacker.process("../assets/gfx/collision", "../assets/gfx/collision", "collision_assets");
 
 		new LwjglApplication(new MyGdxGame(), config);
 	}
